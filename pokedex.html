@@ -11,32 +11,45 @@
 </head>
 
 <body>
-<h1>Pokedex</h1>
+    <h1>Pokedex</h1>
     <div class="container mt-3" id="app">
-       <button @click="getPokemons()" class="btn btn-primary">Generar 500 Pokemons</button>
+        <button @click="getPokemons()" class="btn btn-primary">Generar 500 Pokemons</button>
 
-       <div v-if="pokemons.length > 0">
-          <div v-for="pokemon in pokemons" class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img :src="pokemon.sprites.other.home.front_shiny" class="img-fluid rounded-start" 
-                    alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{pokemon.name}}</h5>
-                  <p>Habilidades</p>
-                  <small class="badge bg-primary mx-1" v-for="habilidad in pokemon.abilities">{{habilidad.ability.name}}</small>
-                  <p>Tipos</p>
-                  <small class="badge bg-primary mx-1" v-for="tipo in pokemon.types">{{tipo.type.name}}</small>
-                  <p>Juegos</p>
-                  <small class="badge bg-primary mx-1" v-for="juego in pokemon.game_indices">{{juego.version.name}}</small>
-                  <p>Stats</p>
-                  <small class="badge bg-primary mx-1" v-for="estadisticas in pokemon.stats">{{estadisticas.stat.name}}: {{estadisticas.base_stat}}</small>
+        <div v-if="pokemons.length > 0">
+            <div class="d-flex flex-wrap">
+                <div v-for="pokemon in pokemons" class="card mb-3" style="max-width: 540px;">
+
+                    <div class="m-3">
+                        <div class="col-md-4">
+                            <img :src="pokemon.sprites.other.home.front_shiny" class="img-fluid rounded-start"
+                                alt="...">
+                        </div>
+                        <div class="card-body ">
+                            <h5 class="card-title">{{pokemon.name}}</h5>
+                            <p>Habilidades</p>
+                            <small class="badge bg-primary mx-1"
+                                v-for="habilidad in pokemon.abilities">{{habilidad.ability.name}}</small>
+                            <p>Tipos</p>
+                            <small class="badge bg-primary mx-1"
+                                v-for="tipo in pokemon.types">{{tipo.type.name}}</small>
+                            <p>Juegos</p>
+                            <small class="badge bg-primary mx-1"
+                                v-for="juego in pokemon.game_indices">{{juego.version.name}}</small>
+                            <p>Stats</p>
+                            <small class="badge bg-primary mx-1"
+                                v-for="estadisticas in pokemon.stats">{{estadisticas.stat.name}}:
+                                {{estadisticas.base_stat}}</small>
+                        </div>
+                    </div>
+
                 </div>
-              </div>
+
+
+
+
+
+
             </div>
-          </div>
         </div>
     </div>
 

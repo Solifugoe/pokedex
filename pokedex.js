@@ -7,9 +7,9 @@ Vue.createApp({
     methods: {
         async getPokemons() {
             this.pokemons = []; // Limpiar el array de pokemons existentes
-            for (let i = 0; i < 500; i++) {
-                const valor = Math.floor(Math.random() * 905);
-                const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + valor, {
+            for (let i = 1; i < 500; i++) {
+             
+                const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + i, {
                     method: 'GET'
                 });
                 const dataPokemon = await response.json();
